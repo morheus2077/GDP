@@ -146,7 +146,7 @@ function App() {
     
      //limpando os campos(inputs)
     setNome("");
-    setValor(0)
+    setValor(0);
     setCategoria("");
     setdata("");
 
