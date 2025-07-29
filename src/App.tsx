@@ -25,8 +25,6 @@ function App() {
   const[totalDespesa, setTotalDespesa] = useState <number>(0);
   const[mediaDespesa, setMediaDespesa] = useState <number>(0);
 
-  const[inputfiltroCategoria, setinputFiltroCategoria] = useState("");
-
   const[textoAtualizar, setTextoAtualizar] = useState({
     enabled: false,
     despe: null as Despesas | null
@@ -190,7 +188,7 @@ function App() {
           {/* Card 2 */}
           <div className='bg-white border border-gray-300 mx-3 md:w-3xl lg:w-96 h-32 md:h-36 rounded-lg my-5'>
             <div className='flex justify-between px-5 pt-5'>
-              <div className='md:text-lg'>Número de Despesas</div>
+              <div className='md:text-lg'>Número de DespesasTESTE</div>
               <div className='text-gray-600'><Calculator/></div>
             </div>
             <div className='px-5 pt-3 md:pt-10 text-2xl font-bold'>
