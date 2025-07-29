@@ -236,7 +236,7 @@ function App() {
                     <div>
                     <input name='valor' className='border border-gray-300 w-[160px] lg:w-60 h-10 rounded-sm indent-3 mt-3' 
                     type="number"
-                    placeholder='0'
+                    placeholder='Digite o valor'
                     value={valor}
                     onChange={(e)=>{setValor(Number(e.target.value))}}
                     />
