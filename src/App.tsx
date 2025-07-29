@@ -166,7 +166,7 @@ function App() {
         {/* Titulos no topo */}
         <div className='top-text flex flex-col items-center pt-10'>
           <h1 className='text-4xl font-bold'>Gestão de Despesas</h1>
-          <h2 className='lg:text-lg mt-4 text-gray-600'>Controle suas finanças de forma simples e eficiente</h2>
+          <h2 className='lg:text-lg mt-4 text-gray-600'>Controle suas finanças de forma simples e eficientesssss</h2>
         </div>
 
         {/* Cards de resumo */}
