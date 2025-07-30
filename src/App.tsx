@@ -305,7 +305,7 @@ function App() {
 
 
           {/* Visualizacao das despesas */}
-          <div className='bg-white lg:h-[600px] md:h-[500px] lg:w-[580px] md:w-[450px] mx-[6px] border border-gray-300 rounded-md mt-10 lg:mt-0 md:mt-0 '>
+          <div className='bg-white mb-5 lg:mb-0 md:mb-5 h-[900px] lg:h-[600px] md:h-[500px] lg:w-[580px] md:w-[450px] mx-[6px] border border-gray-300 rounded-md mt-10 lg:mt-0 md:mt-0 '>
              <div className='px-10 pt-10'>
               <div className="flex items-center gap-3">
                 <i><ListCheck/></i>
