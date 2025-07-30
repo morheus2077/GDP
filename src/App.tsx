@@ -234,11 +234,19 @@ function App() {
                   <div>
                     <label htmlFor="valor">Valor (Mzn)</label>
                     <div>
-                    <input name='valor' className='border border-gray-300 w-[160px] lg:w-60 h-10 rounded-sm indent-3 mt-3' 
-                    type="number"
-                    placeholder='Digite o valor'
-                    value={valor}
-                    onChange={(e)=>{setValor(Number(e.target.value))}}
+                    <input
+                    name="valor"
+                    className="border border-gray-300 w-[160px] lg:w-60   h-10 rounded-sm indent-3             mt-3"
+                    type="text" 
+                    placeholder="0"
+                    value={valor === 0 ? "" : valor} // Mostra vazio se o valor for 0
+                    onChange={(e) => {
+                    const inputValue = e.target.value;
+                    // Aceita apenas nrs ou vazio
+                    if (inputValue === "" || /^\d*\.?\d*$/.test(inputValue)) {
+                      setValor(inputValue === "" ? 0 : Number(inputValue));
+                  }
+              }}
                     />
                     </div>
                   </div>
