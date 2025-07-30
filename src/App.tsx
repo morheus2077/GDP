@@ -31,63 +31,7 @@ function App() {
     despe: null as Despesas | null
   })
 
-  const[Despesa, setDespesa] = useState <Despesas[]>([{
-    id: "8383dn",
-    nome: "Lanche",
-    valor: 250,
-    data: "01/02/2025",
-    categoria: "alimentacao"
-  },
-
-  {
-    id: "8383dppp",
-    nome: "Camisa SLB",
-    valor: 1200,
-    data: "01/02/2025",
-    categoria: "alimentacao"
-  },
-
-  {
-    id: "8didimdm",
-    nome: "Favo de ovo",
-    valor: 250,
-    data: "01/02/2025",
-    categoria: "alimentacao"
-  },
-
-  {
-    id: "8383dppp",
-    nome: "Camisa SLB",
-    valor: 1200,
-    data: "01/02/2025",
-    categoria: "alimentacao"
-  },
-
-  {
-    id: "8didimdm",
-    nome: "Favo de ovo",
-    valor: 250,
-    data: "01/02/2025",
-    categoria: "alimentacao"
-  },
-
-  {
-    id: "8383dppp",
-    nome: "Camisa SLB",
-    valor: 1200,
-    data: "01/02/2025",
-    categoria: "alimentacao"
-  },
-
-  {
-    id: "8didimdm",
-    nome: "Favo de ovo",
-    valor: 250,
-    data: "01/02/2025",
-    categoria: "alimentacao"
-  },
-
-])
+  const[Despesa, setDespesa] = useState <Despesas[]>([])
 
 
   // funcao para adicionar despesas
