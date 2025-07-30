@@ -25,12 +25,69 @@ function App() {
   const[totalDespesa, setTotalDespesa] = useState <number>(0);
   const[mediaDespesa, setMediaDespesa] = useState <number>(0);
 
+
   const[textoAtualizar, setTextoAtualizar] = useState({
     enabled: false,
     despe: null as Despesas | null
   })
 
-  const[Despesa, setDespesa] = useState <Despesas[]>([])
+  const[Despesa, setDespesa] = useState <Despesas[]>([{
+    id: "8383dn",
+    nome: "Lanche",
+    valor: 250,
+    data: "01/02/2025",
+    categoria: "alimentacao"
+  },
+
+  {
+    id: "8383dppp",
+    nome: "Camisa SLB",
+    valor: 1200,
+    data: "01/02/2025",
+    categoria: "alimentacao"
+  },
+
+  {
+    id: "8didimdm",
+    nome: "Favo de ovo",
+    valor: 250,
+    data: "01/02/2025",
+    categoria: "alimentacao"
+  },
+
+  {
+    id: "8383dppp",
+    nome: "Camisa SLB",
+    valor: 1200,
+    data: "01/02/2025",
+    categoria: "alimentacao"
+  },
+
+  {
+    id: "8didimdm",
+    nome: "Favo de ovo",
+    valor: 250,
+    data: "01/02/2025",
+    categoria: "alimentacao"
+  },
+
+  {
+    id: "8383dppp",
+    nome: "Camisa SLB",
+    valor: 1200,
+    data: "01/02/2025",
+    categoria: "alimentacao"
+  },
+
+  {
+    id: "8didimdm",
+    nome: "Favo de ovo",
+    valor: 250,
+    data: "01/02/2025",
+    categoria: "alimentacao"
+  },
+
+])
 
 
   // funcao para adicionar despesas
@@ -146,7 +203,7 @@ function App() {
     
      //limpando os campos(inputs)
     setNome("");
-    setValor(0);
+    setValor(0)
     setCategoria("");
     setdata("");
 
@@ -247,7 +304,7 @@ function App() {
                       setValor(inputValue === "" ? 0 : Number(inputValue));
                   }
               }}
-                    />
+                />
                     </div>
                   </div>
                   <div>
@@ -340,7 +397,7 @@ function App() {
 
 
          {/* Area dos cards das despesas */}
-<div className='flex flex-col gap-4 h-[280px] overflow-y-auto mt-4 px-2'>
+<div className='flex h-[700px] md:h-[335px] lg:h-[400px] flex-col gap-4 overflow-y-auto  md:overflow-y-auto lg:overflow-y-auto mt-4 px-2'>
   {Despesa.map((desp) => (
     <div 
       key={desp.id} 
