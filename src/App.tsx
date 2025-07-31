@@ -1,4 +1,4 @@
-  import { useState, type FormEvent } from 'react'
+  import { useState,} from 'react'
   import './App.css'
   import { CircleDollarSign, Calculator, ChartNoAxesColumn, CirclePlus, ListCheck, Pencil, Trash, CalendarCheck2, Instagram, Facebook, Send, Github, Phone, Mail} from 'lucide-react'
   import { format } from 'date-fns';
