@@ -1,4 +1,4 @@
-  import { useState,} from 'react'
+  import { useState, type FormEvent } from 'react'
   import './App.css'
   import { CircleDollarSign, Calculator, ChartNoAxesColumn, CirclePlus, ListCheck, Pencil, Trash, CalendarCheck2, Instagram, Facebook, Send, Github, Phone, Mail} from 'lucide-react'
   import { format } from 'date-fns';
@@ -7,6 +7,7 @@
 
   function App() {
 
+    //interface para o Objecto que tera as informacoes das despesas
     interface Despesas{
       readonly id: string;
       nome: string;
@@ -16,16 +17,16 @@
       //descricao: string
     }
 
+    //estados para pegar os valores inseridos nos inputs
     const[nome, setNome] = useState <string>("");
     const[valor, setValor] = useState <number>(0);
     const[data, setdata] = useState <string>("");
     const[categoria, setCategoria] = useState<string>("");
-    //const[descricao, setDescricao] = useState <string>("");
+
+    //estados para exibir os valores dos resumos
     const[numeroDespesas, setNumeroDespesas] = useState <number>(0)
     const[totalDespesa, setTotalDespesa] = useState <number>(0);
     const[mediaDespesa, setMediaDespesa] = useState <number>(0);
-
-    //const[inputfiltroCategoria, setinputFiltroCategoria] = useState("");
 
     //Estados para validação dos inputs
     const [erroCategoria, setErroCategoria] = useState<string>('');
@@ -33,20 +34,23 @@
     const[erroValor, setErroValor] = useState<string>("");
     const[erroData, setErroData] = useState<string>("");
 
+    //estado para padronizar a edicao das despesas
     const[textoAtualizar, setTextoAtualizar] = useState({
       enabled: false,
       despe: null as Despesas | null
     })
 
+    //estado em Array para armazenar o objecto com as informacoes das despesas
     const[Despesa, setDespesa] = useState <Despesas[]>([])
 
 
-    // funcao para adicionar despesas
-    function adicionarDespesa(event: React.FormEvent){
+        // funcao para adicionar despesas
+      function adicionarDespesa(event: React.FormEvent){
       
       //funcao pra prevenir o evento padrao de atualizar a pagina ao  fazer a submissao
       event.preventDefault();
 
+      //Validacoes
         // Validação do nome
       if(!nome){
         setErroNome("Por favor, insira um nome.");
@@ -106,9 +110,7 @@
       setNome("");
       setValor(0)
       setCategoria("");
-      //setDescricao("");
       setdata("");
-
     }
 
     //funcao para remover a despesa
@@ -152,6 +154,7 @@
     function atualizarDespesa(event: React.FormEvent){
       event.preventDefault();
 
+      //Validacoes
       // Validação do nome
       if(!nome){
         setErroNome("Por favor, insira um nome.");
@@ -242,7 +245,7 @@
                   < CircleDollarSign/>
                 </div>
               </div>
-              <div className='px-5 pt-3 md:pt-10 text-2xl font-bold'>
+              <div className='px-5 pt-8 md:pt-10 text-2xl font-bold'>
                 <span>MZN {totalDespesa}</span>
               </div>
             </div>
@@ -253,7 +256,7 @@
                 <div className='md:text-lg'>Número de Despesas</div>
                 <div className='text-amber-800'><Calculator/></div>
               </div>
-              <div className='px-5 pt-3 md:pt-10 text-2xl font-bold'>
+              <div className='px-5 pt-8 md:pt-10 text-2xl font-bold'>
                 <span>{numeroDespesas}</span>
               </div>
             </div>
@@ -264,7 +267,7 @@
                 <div className='md:text-lg'>Média por Despesa</div>
                 <div className='text-blue-400'><ChartNoAxesColumn/></div>
               </div>
-              <div className='px-5 pt-3 md:pt-10 text-2xl font-bold'>
+              <div className='px-5 pt-8 md:pt-10 text-2xl font-bold'>
                 <span>MZN {mediaDespesa}</span>
               </div>
             </div>
@@ -349,13 +352,6 @@
                       </select>
                       <p className='text-red-600 text-sm'>{erroCategoria}</p>
                     </div>
-                    {/* <div className='mt-3'>
-                      <label htmlFor="">Descrição</label>
-                      <input type="text"
-                      className='border border-gray-300 w-[500px] h-20 rounded-sm indent-1 mt-3'
-                      value={descricao}
-                      onChange={(e)=>{setDescricao(e.target.value)}}/>
-                    </div> */}
                     <div>
                       {textoAtualizar.enabled === false &&(
                       <button type='submit' className='bg-black text-white border-gray-300 w-[340px] lg:w-[500px] h-10 rounded-md indent-1 mt-5 cursor-pointer hover:bg-green-600 hover:border hover:border-gray-300 hover:scale-105 transition-transform'
@@ -383,29 +379,7 @@
                 </div>
                 <p className='my-3'>Visualize e gerencie todas as suas despesas</p>
                 </div>
-
                 <div className='px-10 mt-6 border-b border-gray-300'>
-                {/* <div className='flex flex-col mt-5 border-b border-gray-300 h-[90px]'>
-                    <label htmlFor="">Filtrar por categoria</label>
-                    <select name="category"
-                    id="category"
-                    className='border border-gray-300 lg:w-[500px] h-10 rounded-sm indent-3 mt-2'
-                    value={inputfiltroCategoria}
-                    onChange={(e)=>{setinputFiltroCategoria(e.target.value)}}
-                    >
-                    <option value="" disabled selected>Selecione uma categoria</option>
-                    <option value="Alimentação">Alimentação</option>
-                    <option value="Transporte">Transporte</option>
-                    <option value="Estudos">Estudos</option>
-                    <option value="Saúde">Saúde</option>
-                    <option value="Lazer">Lazer</option>
-                    </select>
-
-                    <button 
-                    className='bg-black text-white'
-                    onClick={()=> filtrar(inputfiltroCategoria)}
-                    >filtar</button>
-                  </div> */}
             </div>
 
 
@@ -466,7 +440,7 @@
     <div className='px-10 lg:px-16 py-10 justify-between lg:flex text-gray-300'>
       <div>
         <h1>Desenvolvido por Emílio Marcelino Honório Branquinho</h1>
-        <h1 className='mt-3 lg:mt-2'>Contact:</h1>
+        <h1 className='mt-3 lg:mt-2'>Contacto:</h1>
         <div className='flex gap-2 mt-2 lg:mt-2'>
           <i><Phone/></i>
           <h2><a href="tel:+258862399225 ">+258 862399225</a></h2>
